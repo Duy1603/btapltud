@@ -1,0 +1,45 @@
+package com.example.demo.Tuann1;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+
+import com.example.demo.R;
+
+public class Tuan11MainActivity extends AppCompatActivity {
+//khai báo các control
+    EditText txt1, txt2;
+    Button btn1;
+    TextView tv1;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_tuan11_main);
+        //ánh xạ các control
+        txt1=findViewById(R.id.demo11txt1);
+        txt2=findViewById(R.id.demo11txt2);
+        btn1=findViewById(R.id.demo11btn1);
+        tv1=findViewById(R.id.demo11tv1);
+        //xử lý sự kiện
+        btn1.setOnClickListener(v->{
+            //gọi hàm tính tổng
+            tinhtong();
+        });
+    }
+//định nghĩa hàm tính tổng
+    private void tinhtong() {
+        //lấy dữ liệu nhấp vào từ EditText1
+        String str1=txt1.getText().toString();
+        float so1=Float.parseFloat(str1);//chuyển sữ liệu sang số
+        //lấy dữ liệu nhấp vào từ EditText2
+        String str2=txt2.getText().toString();
+        float so2=Float.parseFloat(str2);
+        //tính tổng
+        float tong=so1+so2;
+        //in kết quả ra màn hình
+        tv1.setText(String.valueOf(tong));
+    }
+}
